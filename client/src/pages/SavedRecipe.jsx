@@ -11,7 +11,7 @@ const SavedRecipe = () => {
     const fetchSavedRecipes = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/${userID}`
+          `https://reciepe-backend.onrender.com/recipes/savedRecipes/${userID}`
         );
         setSavedRecipes(response.data.savedRecipes);
       } catch (err) {
@@ -21,7 +21,7 @@ const SavedRecipe = () => {
     fetchSavedRecipes();
   }, []);
 
-  
+
   return (
     <div>
       <h1>Saved Recipes</h1>

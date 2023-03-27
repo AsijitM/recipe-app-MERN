@@ -12,7 +12,9 @@ export default function Home() {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/recipes');
+        const response = await axios.get(
+          'https://reciepe-backend.onrender.com/recipes'
+        );
         setRecipes(response.data);
       } catch (err) {
         console.error(err);
@@ -26,7 +28,7 @@ export default function Home() {
     const fetchSavedRecipe = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/ids/${userID}`
+          `https://reciepe-backend.onrender.com/recipes/savedRecipes/ids/${userID}`
         );
         setSavedRecipes(response.data.savedRecipes);
       } catch (err) {
@@ -39,7 +41,7 @@ export default function Home() {
   const saveRecipe = async (recipeID) => {
     try {
       const response = await axios.put(
-        'http://localhost:3001/recipes',
+        'https://reciepe-backend.onrender.com/recipes',
         {
           recipeID,
           userID,

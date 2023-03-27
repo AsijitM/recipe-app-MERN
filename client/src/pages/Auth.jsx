@@ -23,10 +23,13 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const result = await axios.post('http://localhost:3001/auth/login', {
-        username,
-        password,
-      });
+      const result = await axios.post(
+        'https://reciepe-backend.onrender.com/auth/login',
+        {
+          username,
+          password,
+        }
+      );
 
       setCookies('access_token', result.data.token);
       window.localStorage.setItem('userID', result.data.userID);
@@ -55,7 +58,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:3001/auth/register', {
+      await axios.post('https://reciepe-backend.onrender.com/auth/register', {
         username,
         password,
       });

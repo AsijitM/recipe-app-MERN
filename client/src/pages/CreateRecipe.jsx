@@ -39,7 +39,9 @@ export default function CreateRecipe() {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:3001/recipes', recipe,{headers: {Authorization: cookies.access_token}});
+      await axios.post('https://reciepe-backend.onrender.com/recipes', recipe, {
+        headers: { Authorization: cookies.access_token },
+      });
 
       alert('Recipe Created Successfully');
       navigate('/');
